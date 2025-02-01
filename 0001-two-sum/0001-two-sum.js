@@ -4,15 +4,22 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    const indexMap = {};
-    for (let i = 0; i< nums.length; i++) {
+    const obj = {}
+    let answer = []
+    for (let i = 0; i < nums.length; i++) {
         const diff = target - nums[i];
-        if (diff in indexMap) {
-            return[indexMap[diff], i]
+        if (obj.hasOwnProperty(diff)) {
+            return [i, obj[diff]]
         }
-        indexMap[nums[i]] = i;
+        obj[nums[i]] = i;
+        
     }
     return [];
-    
-    
 };
+
+const test = {
+    2: 0,
+    7: 1,
+    11: 2,
+    15: 3,
+}
